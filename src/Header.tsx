@@ -5,8 +5,11 @@ import {SearchUserType} from './Gitub'
 type SearchResultType = {
     items: SearchUserType[]
 }
+type PropsType = {
+    setUsers: (users: SearchUserType[]) => void
+}
 
-export const Header: React.FC<any> = ({setUsers}) => {
+export const Header: React.FC<PropsType> = ({setUsers}) => {
     const [tempSearch, setTempSearch] = useState('denisrudov')
     const [searchTerm, setSearchTerm] = useState('denisrudov')
 
