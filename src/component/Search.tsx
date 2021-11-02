@@ -9,12 +9,13 @@ type PropsType = {
     setUsers: (users: SearchUserType[]) => void
 }
 
-export const Header: React.FC<PropsType> = ({setUsers}) => {
+export const Search: React.FC<PropsType> = ({setUsers}) => {
+    console.log('SEARCH')
+
     const [tempSearch, setTempSearch] = useState('denisrudov')
     const [searchTerm, setSearchTerm] = useState('denisrudov')
 
     useEffect(() => {
-        console.log('SYNC USERS')
         axios.get<SearchResultType>(`https://api.github.com/search/users?q=${searchTerm}`)
             .then(res => {
                 setUsers(res.data.items)
@@ -27,6 +28,7 @@ export const Header: React.FC<PropsType> = ({setUsers}) => {
                        onChange={(e) => {
                            setTempSearch(e.currentTarget.value)
                        }}/>
+                <br/>
                 <button onClick={() => {
                     setSearchTerm(tempSearch)
                 }}>Find

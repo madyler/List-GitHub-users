@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from 'react'
-import s from './Gitub.module.css'
-import {Header} from './Header'
+import s from '../Gitub.module.css'
+import {Search} from './Search'
 import {UserDetails} from './UserDetails'
-import {Users} from './Users'
+import {UsersList} from './UsersList'
 
 export type SearchUserType = {
     login: string
@@ -10,11 +10,11 @@ export type SearchUserType = {
 }
 
 export const Github = () => {
+    console.log('GIT HUB')
     const [selectedUser, setSelectedUser] = useState<SearchUserType | null>(null)
     const [users, setUsers] = useState<SearchUserType[]>([])
 
     useEffect(() => {
-        console.log('SYNC TAB TITLE')
         if (selectedUser) {
             document.title = selectedUser.login
         }
@@ -22,11 +22,11 @@ export const Github = () => {
 
     return <div className={s.container}>
         <div>
-            <Header setUsers={setUsers}/>
+            <Search setUsers={setUsers}/>
             <hr/>
-            <Users users={users}
-                   selectedUser={selectedUser}
-                   setSelectedUser={setSelectedUser}/>
+            <UsersList users={users}
+                       selectedUser={selectedUser}
+                       setSelectedUser={setSelectedUser}/>
         </div>
         <UserDetails selectedUser={selectedUser}/>
     </div>

@@ -1,5 +1,5 @@
 import React from 'react'
-import s from './Gitub.module.css'
+import s from '../Gitub.module.css'
 import {SearchUserType} from './Gitub'
 
 type PropsType = {
@@ -8,7 +8,8 @@ type PropsType = {
     setSelectedUser: (user: SearchUserType) => void
 }
 
-export const Users: React.FC<PropsType> = ({users, selectedUser, setSelectedUser}) => {
+export const UsersList: React.FC<PropsType> = ({users, selectedUser, setSelectedUser}) => {
+    console.log('USER LIST')
     return <div>
             <ul>
                 {users

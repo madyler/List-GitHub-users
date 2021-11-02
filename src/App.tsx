@@ -1,5 +1,5 @@
 import React from 'react';
-import {Github} from './Gitub'
+import {Github} from './component/Gitub'
 
 function App() {
   return <Github />
